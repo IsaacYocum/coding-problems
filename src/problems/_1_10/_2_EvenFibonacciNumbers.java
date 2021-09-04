@@ -1,23 +1,10 @@
-import java.math.BigInteger;
+package problems._1_10;
+
 import java.util.ArrayList;
 
-public class eulerProblems {
+public class _2_EvenFibonacciNumbers {
     public static void main(String[] args) {
-//        multiplesOf3Or5();
-//        evenFibonacciNumbers();
-        largestPrimeFactor();
-    }
-
-    public static void multiplesOf3Or5() {
-        int sum = 0;
-
-        for (int i = 1; i < 1000; i++) {
-            if (i % 3 == 0 || i % 5 == 0) {
-                sum += i;
-            }
-        }
-
-        System.out.println("The sum is: " + sum);
+        evenFibonacciNumbers();
     }
 
     public static void evenFibonacciNumbers() {
@@ -50,11 +37,5 @@ public class eulerProblems {
 
         System.out.println(sequence);
         System.out.println("Sum of even terms: " + sumOfEven);
-    }
-
-    public static void largestPrimeFactor() {
-        long target = 600851475143L;
-
-
     }
 }
