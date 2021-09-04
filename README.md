@@ -1,3 +1,3 @@
-# eulerProblems
-My solutions to some of the Euler project problems.
+# Project Euler Problems
+My solutions to some of the [Project Euler](https://projecteuler.net/about) problems.
 
