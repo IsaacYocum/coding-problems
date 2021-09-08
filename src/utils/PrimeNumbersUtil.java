@@ -12,7 +12,7 @@ public class PrimeNumbersUtil {
 
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
 
-        for (int i = 1; i < limit; i++) {
+        for (int i = 2; i < limit; i++) {
             boolean primeCandidate = true;
 
             for (int j = 2; j < i; j++) {
@@ -39,7 +39,7 @@ public class PrimeNumbersUtil {
 
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
 
-        int i = 1;
+        int i = 2;
 
         while (listOfPrimeFactors.size() < numOfPrimeNums) {
             boolean primeCandidate = true;
@@ -59,5 +59,36 @@ public class PrimeNumbersUtil {
         }
 
         return listOfPrimeFactors;
+    }
+
+    /**
+     * Retrieves the nth prime number.
+     * @param nthPrimeNum The nth prime position.
+     * @return Returns the nth prime number.
+     */
+    public static int getNthPrimeNumber(int nthPrimeNum) {
+        int primesFound = 0;
+        int currentPrime = 0;
+        int i = 2;
+
+        while (primesFound < nthPrimeNum) {
+            boolean primeCandidate = true;
+
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    primeCandidate = false;
+                    break;
+                }
+            }
+
+            if (primeCandidate) {
+                primesFound++;
+                currentPrime = i;
+            }
+
+            i++;
+        }
+
+        return currentPrime;
     }
 }
