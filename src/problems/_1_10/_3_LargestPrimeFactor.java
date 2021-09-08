@@ -22,6 +22,11 @@ public class _3_LargestPrimeFactor {
         System.out.println(target);
     }
 
+    /**
+     * Calculates all prime numbers <= the specified limit.
+     * @param limit The upper limit of possible prime numbers to return.
+     * @return A list of prime numbers <= @param limit.
+     */
     public static ArrayList<Integer> getPrimeNumbersUntil(int limit) {
 
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
