@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 public class _2_EvenFibonacciNumbers {
     public static void main(String[] args) {
-        evenFibonacciNumbers();
-    }
-
-    public static void evenFibonacciNumbers() {
         int FourMil = 4000000;
         ArrayList<Integer> sequence = new ArrayList<>();
 
@@ -38,4 +34,5 @@ public class _2_EvenFibonacciNumbers {
         System.out.println(sequence);
         System.out.println("Sum of even terms: " + sumOfEven);
     }
+
 }
