@@ -6,11 +6,10 @@ public class _6_SumSquareDifference {
 
         int sumOfSquare = sumOfSquaresUntil(limit);
         int squareOfSum = squareOfSumUntil(limit);
-        int sumSquareDifference = squareOfSum - sumOfSquare;
 
         System.out.println("The sum of squares until " + limit + " = " + sumOfSquare);
         System.out.println("The square of sum until " + limit + " = " + squareOfSum);
-        System.out.println("The sum square difference: " + squareOfSum + " - " + sumOfSquare + " = " + sumSquareDifference);
+        System.out.println("The sum square difference: " + squareOfSum + " - " + sumOfSquare + " = " + (squareOfSum - sumOfSquare));
     }
 
     private static int sumOfSquaresUntil(int limit) {
