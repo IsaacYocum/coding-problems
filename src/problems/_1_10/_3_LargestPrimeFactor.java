@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class _3_LargestPrimeFactor {
     public static void main(String[] args) {
         long target = 600851475143L;
-        ArrayList<Integer> primeNumbersUntil100 = PrimeNumbersUtil.getPrimeNumbersUntil(10000);
+        ArrayList<Integer> primeNumbersUntil100 = PrimeNumbersUtil.getNPrimeNumbers(10000);
 
         System.out.println(primeNumbersUntil100);
 

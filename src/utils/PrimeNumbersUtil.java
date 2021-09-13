@@ -3,22 +3,27 @@ package utils;
 import java.util.ArrayList;
 
 public class PrimeNumbersUtil {
-    /**
-     * Calculates all prime numbers <= the specified limit.
-     * @param limit The upper limit of possible prime numbers to return.
-     * @return A list of prime numbers <= @param limit.
-     */
-    public static ArrayList<Integer> getPrimeNumbersUntil(int limit) {
 
+    public static ArrayList<Integer> calcPrimes(int numPrimesToGet) {
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
 
-        for (int i = 2; i < limit; i++) {
+        for (int i = 2; i < numPrimesToGet; i++) {
             boolean primeCandidate = true;
 
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    primeCandidate = false;
-                    break;
+            if (i < 10) {
+                for (int j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        primeCandidate = false;
+                        break;
+                    }
+                }
+            } else {
+                // while i > 9, if divisible by anything between 1-9, not a prime
+                for (int j = 2; j < 10; j++) {
+                    if (i % j == 0) {
+                        primeCandidate = false;
+                        break;
+                    }
                 }
             }
 
@@ -31,64 +36,22 @@ public class PrimeNumbersUtil {
     }
 
     /**
-     * Gets a list of prime numbers that is as long as @param numOfPrimeNums.
-     * @param numOfPrimeNums The number of prime numbers that will be returned.
-     * @return A list of prime numbers that is @params numOfPrimeNums long.
+     * Calculates all prime numbers <= the specified limit.
+     *
+     * @param numPrimesToGet The upper limit of possible prime numbers to return.
+     * @return A list of prime numbers <= @param limit.
      */
-    public static ArrayList<Integer> getThisManyPrimeNumbers(int numOfPrimeNums) {
-
-        ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
-
-        int i = 2;
-
-        while (listOfPrimeFactors.size() < numOfPrimeNums) {
-            boolean primeCandidate = true;
-
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    primeCandidate = false;
-                    break;
-                }
-            }
-
-            if (primeCandidate) {
-                listOfPrimeFactors.add(i);
-            }
-
-            i++;
-        }
-
-        return listOfPrimeFactors;
+    public static ArrayList<Integer> getNPrimeNumbers(int numPrimesToGet) {
+        return calcPrimes(numPrimesToGet);
     }
 
     /**
      * Retrieves the nth prime number.
+     *
      * @param nthPrimeNum The nth prime position.
      * @return Returns the nth prime number.
      */
     public static int getNthPrimeNumber(int nthPrimeNum) {
-        int primesFound = 0;
-        int currentPrime = 0;
-        int i = 2;
-
-        while (primesFound < nthPrimeNum) {
-            boolean primeCandidate = true;
-
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    primeCandidate = false;
-                    break;
-                }
-            }
-
-            if (primeCandidate) {
-                primesFound++;
-                currentPrime = i;
-            }
-
-            i++;
-        }
-
-        return currentPrime;
+        return calcPrimes(nthPrimeNum).get(nthPrimeNum);
     }
 }
