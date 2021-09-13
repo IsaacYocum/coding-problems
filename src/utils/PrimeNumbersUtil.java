@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class PrimeNumbersUtil {
 
+    /**
+     * Calculates a list of prime numbers @param numPrimesToGet long.
+     * @param numPrimesToGet The length of the list of prime numbers to return.
+     * @return A list of prime numbers @param numPrimesToGet long.
+     */
     public static ArrayList<Integer> calcPrimes(int numPrimesToGet) {
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
 
