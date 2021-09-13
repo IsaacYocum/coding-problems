@@ -1,8 +1,8 @@
 package problems._1_10;
 
 public class _8_LargestProductInASeries {
-    private static final int subseriesLength = 13;
-    private static final String series = "73167176531330624919225119674426574742355349194934" +
+    private static final int SUBSERIES_LENGTH = 13;
+    private static final String SERIES = "73167176531330624919225119674426574742355349194934" +
             "96983520312774506326239578318016984801869478851843" +
             "85861560789112949495459501737958331952853208805511" +
             "12540698747158523863050715693290963295227443043557" +
@@ -28,15 +28,15 @@ public class _8_LargestProductInASeries {
         String subseriesWithHighestProduct = "";
         int finalNumOfCalculations = 0;
 
-        for (int i = 0; i < series.length() - subseriesLength + 1; i++) {
+        for (int i = 0; i < SERIES.length() - SUBSERIES_LENGTH + 1; i++) {
 
             StringBuilder subseries = new StringBuilder();
-            for (int j = 0; j < subseriesLength; j++) {
-                subseries.append(series.toCharArray()[i + j]);
+            for (int j = 0; j < SUBSERIES_LENGTH; j++) {
+                subseries.append(SERIES.toCharArray()[i + j]);
             }
 
             long subseriesProduct = 1;
-            // If any number in the 13 digit series is 0, the product will be zero. Do not execute if the series contains 0.
+            // If any number in the subseries is 0, the product will be zero. Do not execute if the subseries contains 0.
             if (!subseries.toString().contains("0")) {
                 finalNumOfCalculations++;
 
@@ -49,8 +49,8 @@ public class _8_LargestProductInASeries {
                     subseriesWithHighestProduct = subseries.toString();
                 }
 
-                System.out.println("\nStarting at: " + series.toCharArray()[i]);
-                System.out.println(subseriesLength + " digit subseries = " + subseries);
+                System.out.println("\nStarting at: " + SERIES.toCharArray()[i]);
+                System.out.println(SUBSERIES_LENGTH + " digit subseries = " + subseries);
                 System.out.println("Subseries product = " + subseriesProduct);
             }
         }
