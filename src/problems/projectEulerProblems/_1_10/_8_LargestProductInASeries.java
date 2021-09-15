@@ -1,4 +1,4 @@
-package problems._1_10;
+package problems.projectEulerProblems._1_10;
 
 public class _8_LargestProductInASeries {
     private static final int SUBSERIES_LENGTH = 13;

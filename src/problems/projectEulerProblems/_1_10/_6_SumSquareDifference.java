@@ -1,4 +1,4 @@
-package problems._1_10;
+package problems.projectEulerProblems._1_10;
 
 public class _6_SumSquareDifference {
     public static void main(String[] args) {
