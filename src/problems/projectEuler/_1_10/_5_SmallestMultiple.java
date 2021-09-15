@@ -1,4 +1,4 @@
-package problems.projectEulerProblems._1_10;
+package problems.projectEuler._1_10;
 
 public class _5_SmallestMultiple {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package problems.otherProblems.google;
+package problems.google;
 
 import java.util.ArrayList;
 import java.util.HashMap;

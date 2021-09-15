@@ -1,4 +1,4 @@
-package problems.projectEulerProblems._1_10;
+package problems.projectEuler._1_10;
 
 public class _9_SpecialPythagoreanTriplet {
     private static final int SUM_TARGET = 1000;

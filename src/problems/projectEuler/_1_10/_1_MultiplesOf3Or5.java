@@ -1,4 +1,4 @@
-package problems.projectEulerProblems._1_10;
+package problems.projectEuler._1_10;
 
 public class _1_MultiplesOf3Or5 {
     public static void main(String[] args) {
