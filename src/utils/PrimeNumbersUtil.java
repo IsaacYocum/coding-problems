@@ -4,37 +4,17 @@ import java.util.ArrayList;
 
 public class PrimeNumbersUtil {
 
-    /**
-     * Calculates a list of prime numbers @param numPrimesToGet long.
-     * @param numPrimesToGet The length of the list of prime numbers to return.
-     * @return A list of prime numbers @param numPrimesToGet long.
-     */
-    public static ArrayList<Integer> calcPrimes(int numPrimesToGet) {
+    public static ArrayList<Integer> getPrimesUntil(int numToStopAt) {
         ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
+        listOfPrimeFactors.add(2);
 
-        for (int i = 2; i < numPrimesToGet; i++) {
-            boolean primeCandidate = true;
-
-            if (i < 10) {
-                for (int j = 2; j < i; j++) {
-                    if (i % j == 0) {
-                        primeCandidate = false;
-                        break;
-                    }
-                }
-            } else {
-                // while i > 9, if divisible by anything between 1-9, not a prime
-                for (int j = 2; j < 10; j++) {
-                    if (i % j == 0) {
-                        primeCandidate = false;
-                        break;
-                    }
-                }
-            }
-
-            if (primeCandidate) {
+        int i = 3;
+        while (listOfPrimeFactors.get(listOfPrimeFactors.size() - 1) < numToStopAt) {
+            if (isPrime(i)) {
                 listOfPrimeFactors.add(i);
             }
+
+            i++;
         }
 
         return listOfPrimeFactors;
@@ -47,7 +27,7 @@ public class PrimeNumbersUtil {
      * @return A list of prime numbers <= @param limit.
      */
     public static ArrayList<Integer> getNPrimeNumbers(int numPrimesToGet) {
-        return calcPrimes(numPrimesToGet);
+        return calcNPrimes(numPrimesToGet);
     }
 
     /**
@@ -57,6 +37,45 @@ public class PrimeNumbersUtil {
      * @return Returns the nth prime number.
      */
     public static int getNthPrimeNumber(int nthPrimeNum) {
-        return calcPrimes(nthPrimeNum).get(nthPrimeNum);
+        return calcNPrimes(nthPrimeNum).get(nthPrimeNum);
+    }
+
+    /**
+     * Calculates a list of prime numbers @param numPrimesToGet long.
+     *
+     * @param numPrimesToGet The length of the list of prime numbers to return.
+     * @return A list of prime numbers @param numPrimesToGet long.
+     */
+    private static ArrayList<Integer> calcNPrimes(int numPrimesToGet) {
+        ArrayList<Integer> listOfPrimeFactors = new ArrayList<>();
+
+        int i = 0;
+        while (listOfPrimeFactors.size() < numPrimesToGet) {
+            if (isPrime(i)) {
+                listOfPrimeFactors.add(i);
+            }
+
+            i++;
+        }
+
+        return listOfPrimeFactors;
+    }
+
+    private static boolean isPrime(int primeCandidate) {
+        if (primeCandidate <= 1) {
+            return false;
+        }
+
+        if (primeCandidate == 2) {
+            return true;
+        }
+
+        for (int i = 2; i <= Math.sqrt(primeCandidate) + 1; i++) {
+            if (primeCandidate % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
