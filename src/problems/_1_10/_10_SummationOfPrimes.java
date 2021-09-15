@@ -9,9 +9,7 @@ public class _10_SummationOfPrimes {
     private static final ArrayList<Integer> PRIME_NUMBERS_LIST = PrimeNumbersUtil.getPrimesUntil(PRIME_CAP);
 
     public static void main(String[] args) {
-        int sum = 0;
-
-        int finalPrime = PRIME_NUMBERS_LIST.get(PRIME_NUMBERS_LIST.size() - 1);
+        long sum = 0;
 
         int i = 0;
         while (PRIME_NUMBERS_LIST.get(i) < PRIME_CAP) {
