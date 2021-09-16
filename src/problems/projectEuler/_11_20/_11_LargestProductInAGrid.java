@@ -2,6 +2,9 @@ package problems.projectEuler._11_20;
 
 import java.util.ArrayList;
 
+/**
+ * Source: https://projecteuler.net/problem=11
+ */
 public class _11_LargestProductInAGrid {
     private static final String GRID_STRING =
             "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" +
@@ -23,23 +26,136 @@ public class _11_LargestProductInAGrid {
             "04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36\n" +
             "20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16\n" +
             "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54\n" +
-            "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
+            "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48\n";
 
     private static final ArrayList<ArrayList<String>> GRID = new ArrayList<>();
 
     public static void main(String[] args) {
         consumeGridString();
 
+        long highestProduct = 0;
 
+        long greatestHorizontal = greatestHorizontal();
+        System.out.println("Greatest horizontal product = " + greatestHorizontal);
+
+        long greatestVertical = greatestVertical();
+        System.out.println("Greatest vertical product = " + greatestVertical);
+
+        long greatestForwardDiagonal = greatestForwardDiagonal();
+        System.out.println("Greatest vertical product = " + greatestForwardDiagonal);
+
+        long greatestBackwardDiagonal = greatestBackwardDiagonal();
+        System.out.println("Greatest vertical product = " + greatestBackwardDiagonal);
+
+        highestProduct = Math.max(highestProduct, greatestHorizontal);
+        highestProduct = Math.max(highestProduct, greatestVertical);
+        highestProduct = Math.max(highestProduct, greatestForwardDiagonal);
+        highestProduct = Math.max(highestProduct, greatestBackwardDiagonal);
+
+        System.out.println("Highest product = " + highestProduct);
+
+    }
+
+    private static int greatestForwardDiagonal() {
+        int highestValue = 0;
+
+        for (int i = 0; i < GRID.get(0).size(); i++) {
+            for (int j = 0; j < GRID.size() - 1; j++) {
+                if (i + 3 <= GRID.get(0).size() - 1 && j + 3 <= GRID.size() - 1) {
+                    int one = Integer.parseInt(GRID.get(i).get(j + 3));
+                    int two = Integer.parseInt(GRID.get(i + 1).get(j + 2));
+                    int three = Integer.parseInt(GRID.get(i + 2).get(j + 1));
+                    int four = Integer.parseInt(GRID.get(i + 3).get(j));
+
+                    int product = one * two * three * four;
+
+                    if (product > highestValue) {
+                        highestValue = product;
+                    }
+                }
+            }
+        }
+
+        return  highestValue;
+    }
+
+    private static int greatestBackwardDiagonal() {
+        int highestValue = 0;
+
+        for (int i = 0; i < GRID.get(0).size(); i++) {
+            for (int j = 0; j < GRID.size() - 1; j++) {
+                if (i + 3 <= GRID.get(0).size() - 1 && j + 3 <= GRID.size() - 1) {
+                    int one = Integer.parseInt(GRID.get(i).get(j));
+                    int two = Integer.parseInt(GRID.get(i + 1).get(j + 1));
+                    int three = Integer.parseInt(GRID.get(i + 2).get(j + 2));
+                    int four = Integer.parseInt(GRID.get(i + 3).get(j + 3));
+
+                    int product = one * two * three * four;
+
+                    if (product > highestValue) {
+                        highestValue = product;
+                    }
+                }
+            }
+        }
+
+        return  highestValue;
+    }
+
+    private static int greatestHorizontal() {
+        int highestValue = 0;
+
+        for (ArrayList<String> row : GRID) {
+            for (int i = 0; i < row.size(); i++) {
+                if (i + 3 <= row.size() - 1) {
+                    int one = Integer.parseInt(row.get(i));
+                    int two = Integer.parseInt(row.get(i + 1));
+                    int three = Integer.parseInt(row.get(i + 2));
+                    int four = Integer.parseInt(row.get(i + 3));
+
+                    int product = one * two * three * four;
+
+                    if (product > highestValue) {
+                        highestValue = product;
+                    }
+                }
+            }
+        }
+
+        return  highestValue;
+    }
+
+    private static int greatestVertical() {
+        int highestValue = 0;
+
+        for (int i = 0; i < GRID.get(0).size(); i++) {
+            for (int j = 0; j < GRID.size() - 1; j++) {
+                if (j + 3 <= GRID.size() - 1) {
+                    int one = Integer.parseInt(GRID.get(j).get(i));
+                    int two = Integer.parseInt(GRID.get(j + 1).get(i));
+                    int three = Integer.parseInt(GRID.get(j + 2).get(i));
+                    int four = Integer.parseInt(GRID.get(j + 3).get(i));
+
+                    int product = one * two * three * four;
+
+                    if (product > highestValue) {
+                        highestValue = product;
+                    }
+                }
+            }
+        }
+
+        return  highestValue;
     }
 
     private static void consumeGridString() {
         GRID.add(new ArrayList<>());
+
         int i = 0;
         StringBuilder sb = new StringBuilder();
         for (char c : GRID_STRING.toCharArray()) {
 
-            if (c != ' ') {
+            if (c != ' ' && c != '\n') {
                 sb.append(c);
             }
 
@@ -54,6 +170,6 @@ public class _11_LargestProductInAGrid {
             }
         }
 
-        System.out.println(GRID.get(i));
+        GRID.remove(GRID.size() - 1);
     }
 }
