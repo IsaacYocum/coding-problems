@@ -18,7 +18,7 @@ Expected output:
 7:     fish
  */
 
-public class printTreeAnimalKingdom {
+public class PrintTreeAnimalKingdom {
     public static void main(String[] args) {
         List<Relation> input = new ArrayList<>();
 
@@ -79,6 +79,8 @@ public class printTreeAnimalKingdom {
             System.out.print("  ");
         }
 
+        System.out.println(root);
+
         List<String> children;
         if (relations.containsKey(root)) {
             children = relations.get(root);
@@ -89,6 +91,8 @@ public class printTreeAnimalKingdom {
         for (String child : children) {
             dfs(relations, depth + 1, child);
         }
+
+
     }
 }
 
