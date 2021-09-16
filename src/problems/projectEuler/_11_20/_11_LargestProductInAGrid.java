@@ -42,10 +42,10 @@ public class _11_LargestProductInAGrid {
         System.out.println("Greatest vertical product = " + greatestVertical);
 
         long greatestForwardDiagonal = greatestForwardDiagonal();
-        System.out.println("Greatest vertical product = " + greatestForwardDiagonal);
+        System.out.println("Greatest forward diagonal product = " + greatestForwardDiagonal);
 
         long greatestBackwardDiagonal = greatestBackwardDiagonal();
-        System.out.println("Greatest vertical product = " + greatestBackwardDiagonal);
+        System.out.println("Greatest backwards diagonal product = " + greatestBackwardDiagonal);
 
         highestProduct = Math.max(highestProduct, greatestHorizontal);
         highestProduct = Math.max(highestProduct, greatestVertical);
