@@ -1,4 +1,4 @@
-package problems.leetcode;
+package problems.leetcode._1_10;
 
 import java.util.Arrays;
 
