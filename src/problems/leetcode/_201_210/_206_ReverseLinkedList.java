@@ -11,6 +11,8 @@ public class _206_ReverseLinkedList {
         test.print();
     }
 
+    // O(n), must iterate though all nodes in linked list
+    // O(1), no new lists are allocated
     public static ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
